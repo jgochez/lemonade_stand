@@ -158,23 +158,6 @@ class LemonadeStand:
 
 def main():
     # Main function will call a function to add items to menu and to enter orders
-    'Note for graders of this assignment'
-    'I realized that, well into my completion of this program that'
-    'I did not make my add_item objects as required, I made them as'
-    'dictionaries in the same fashion as my order_day objects. I had'
-    'gone to far to turn back, so the MenuItem class is never used in'
-    'this program. Furthermore, to make up for the lack of functionality'
-    'that this problem posed, I created a new method get_price() in the'
-    'LemonadeStand class to return the price of the item. This of course'
-    'was not enough as both a wholesale_price and selling_price is'
-    'required, thus, to make up for that, when the profit is calculated'
-    'the function that executes this will call for the selling price'
-    'with get_price() but I calculate a wholesale price by dividing'
-    'selling_price by half, effectively defining my wholesale price'
-    'as half of whatever the selling price is. It is a cheap solution'
-    'but for sake of functionality it does the job.'
-
-
     stand = LemonadeStand("I could have had a lemon?..stand")
     add_item1 = stand.add_menu_item({"strawberry": 1.00})
     add_item2 = stand.add_menu_item({"orange": 1.50})
