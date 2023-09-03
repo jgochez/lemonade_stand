@@ -1,6 +1,6 @@
 # Lemonade Stand Point of Service (POS) System
 
-**[70 pts]**  You will be writing code for recording the menu items and daily sales of a lemonade stand. It will have these classes: MenuItem, SalesForDay, and LemonadeStand. All data members of each class should be marked as **private** (a leading underscore in the name). Since they're private, if you need to access them from outside the class, you should do so via get or set methods.
+You will be writing code for a simulator that records the menu items and daily sales of a lemonade stand. It will have these classes: MenuItem, SalesForDay, and LemonadeStand. All data members of each class should be marked as **private** (a leading underscore in the name). Since they're private, if you need to access them from outside the class, you should do so via get or set methods.
 
 Here are descriptions of the three classes:
 
@@ -68,35 +68,13 @@ The LemonadeStand methods are:
 So a LemonadeStand contains a **dictionary** of MenuItems. It also contains a **list** of SalesForDay objects, and each of those SalesForDay objects contains a **dictionary** of items sold on a particular day. At each point it's important to keep straight whether you are currently working with a list or a dictionary, which you may find trickier when one is nested inside the other. 
 
 
-**[10 pts]**  **Your LemonadeStand.py file must include a main function** that runs if the file is run as a script, but not if it's imported to another file.  Your main function should:
+**Your main file must include a main function** that runs if the file is run as a script, but not if it's imported to another file.  Your main function should:
 1. create a LemonadeStand object
 2. create one or more MenuItem objects and add them to the LemonadeStand's menu
 3. create a dictionary of sales for the day that includes sales of at least one item that isn't in the menu
 4. try calling enter_sales_for_today(), passing that sales dictionary as the argument
 5. If an InvalidSalesItemError is raised, it should be caught with a try/except that prints an explanatory message for the user (otherwise the function should proceed normally)
 
-**[20 pts]**  In addition to your file containing the code for the above classes, **you must also submit a file that contains unit tests for your classes.  It must have at least five unit tests and use at least two different assert functions.  This part (like the rest) must be your own work. 
+In addition to your file containing the code for the above classes, **you must also submit a file that contains unit tests for your classes.  It must have at least five unit tests and use at least two different assert functions.  This part (like the rest) must be your own work. 
 
-**Gradescope will not test your main function or unit tests - the TAs will take care of that.**
 
-Here's a very simple example of how your classes could be used:
-```
-stand = LemonadeStand('Lemons R Us')  # Create a new LemonadeStand callled 'Lemons R Us'
-item1 = MenuItem('lemonade', 0.5, 1.5)  # Create lemonade as a menu item (wholesale cost 50 cents, selling price $1.50)
-stand.add_menu_item(item1)  # Add lemonade to the menu for 'Lemons R Us'
-item2 = MenuItem('nori', 0.6, 0.8)  # Create nori as a menu item (wholesale cost 60 cents, selling price 80 cents)
-stand.add_menu_item(item2)  # Add nori to the menu for 'Lemons R Us'
-item3 = MenuItem('cookie', 0.2, 1)  # Create cookie as a menu item (wholesale cost 20 cents, selling price $1.00)
-stand.add_menu_item(item3)  # Add cookie to the menu for 'Lemons R Us'
-
-# This dictionary records that on day zero, 5 lemonades were sold, 2 cookies were sold, and no nori was sold
-day_0_sales = {
-    'lemonade' : 5,
-    'cookie'   : 2
-}
-
-stand.enter_sales_for_today(day_0_sales)  # Record the sales for day zero
-print(f"lemonade profit = {stand.total_profit_for_menu_item('lemonade')}"  # print the total profit for lemonade so far
-```
-
-Your files must be named: **LemonadeStand.py** and **LemonadeStandTester.py**

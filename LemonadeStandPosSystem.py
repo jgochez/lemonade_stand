@@ -1,7 +1,7 @@
 # Author: Jovanny Gochez
 # GitHub username: jgochez
 # Date: July 5, 2023
-# Description: Assignment 2
+# Description: Lemonade Stand POS System
 
 class InvalidSalesItemError(Exception):
     """Error function when item sold is not on menu"""
@@ -159,30 +159,21 @@ class LemonadeStand:
 def main():
     # Main function will call a function to add items to menu and to enter orders
     stand = LemonadeStand("I could have had a lemon?..stand")
-    add_item1 = stand.add_menu_item({"strawberry": 1.00})
-    add_item2 = stand.add_menu_item({"orange": 1.50})
-    add_item3 = stand.add_menu_item({"hibiscus": 2.50})
-
-    # The following three blocks of code are all three orders with
-    # each having a valid and invalid order
-    # The valid order go as normal and be registered
-    # The invalid order will run and raise an ERROR prompting the user a message
-    # Every code executed will provide print statements of how things went
 
     order_day_0_invalid = {"strawberry": 5, "orange": 8, "prune": 44}
     order_day_0_valid = {"strawberry": 5, "orange": 8, "hibiscus": 44}
     stand.enter_sales_for_today(order_day_0_invalid)
-    stand.enter_sales_for_today(order_day_0_valid)
+    stand.enter_sales_for_today(order_day_0_valid)  # Takes us to next day
 
     order_day_1_invalid = {"strawberry": 2, "orange": 0, "prune": 3}
     order_day_1_valid = {"strawberry": 2, "orange": 0, "hibiscus": 3}
     stand.enter_sales_for_today(order_day_1_invalid)
-    stand.enter_sales_for_today(order_day_1_valid)
+    stand.enter_sales_for_today(order_day_1_valid)  # Takes us to next day
 
     order_day_2_invalid = {"strawberry": 7, "orange": 50, "prune": 0}
     order_day_2_valid = {"strawberry": 7, "orange": 50, "hibiscus": 0}
     stand.enter_sales_for_today(order_day_2_invalid)
-    stand.enter_sales_for_today(order_day_2_valid)
+    stand.enter_sales_for_today(order_day_2_valid)  # Takes us to next day
 
     # Check on sale of an item on a specific day
     day_n = 1
@@ -191,11 +182,11 @@ def main():
     print(f"On day '{day_n}', the number of times "
           f"the item '{item_search}' was sold was: '{item_sales}' times!")
 
-    # The following code will return and then print total profit for item
+    # Return total profit for specific item
     item_profit = stand.total_profit_for_menu_item("strawberry")
     print(f"Total profit for item was ${float(item_profit)}!")
 
-    # The following code will execute and provide a status of total profit made by stand
+    # Return value of total profit made by stand
     total_profit = stand.total_profit_for_stand()
     print(f"Congratulations! The total profit for the entire stand was ${float(total_profit)}!")
 
